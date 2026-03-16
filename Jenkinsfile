@@ -3,34 +3,24 @@ pipeline {
 
     stages {
 
-        stage('Pull') {
+        stage('Job 1') {
             steps {
-                echo "Pulling code from GitHub"
-                checkout scm
+                sh 'mkdir -p JOB_1'
+                echo "JOB_1 created"
             }
         }
 
-        stage('Build') {
+        stage('Job 2') {
             steps {
-                echo "Build Stage"
-                sh 'chmod +x Build.sh'
-                sh './Build.sh'
+                sh 'mkdir -p JOB_1/JOB_2'
+                echo "JOB_2 created"
             }
         }
 
-        stage('Test') {
+        stage('Job 3') {
             steps {
-                echo "Test Stage"
-                sh 'chmod +x Test.sh'
-                sh './Test.sh'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Deploy Stage"
-                sh 'chmod +x Deploy.sh'
-                sh './Deploy.sh'
+                sh 'mkdir -p JOB_1/JOB_2/JOB_3'
+                echo "JOB_3 created"
             }
         }
     }
